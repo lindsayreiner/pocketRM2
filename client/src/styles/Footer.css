@@ -1,0 +1,19 @@
+/*  Footer Style Sheet */
+
+footer {
+  position: relative;
+  bottom: 0;
+  background-color: var(--navbarBg);
+  width: 100%;
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  height: 3em;
+}
+
+.copyright-notice {
+  display: inline-block;
+  margin-top: 0.75em;
+}

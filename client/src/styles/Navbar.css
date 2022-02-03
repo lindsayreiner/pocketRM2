@@ -1,0 +1,35 @@
+.navbar {
+  background-color: var(--navbarBg);
+  z-index: 999;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.navLogo {
+  max-width: unset !important;
+  margin: 1em;
+  margin-right: 1em;
+}
+
+.acctBtns {
+  margin: 1em;
+  float: right;
+}
+
+.btn-primary {
+  list-style: none;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  font-family: "Poppins", sans-serif !important;
+}
+
+#login-button {
+  width: 85.72px;
+  margin-right: 0.5em;
+  border: 3px outset var(--btnColor);
+}
+
+#register-button {
+  border: 3px outset var(--btnColor);
+}
