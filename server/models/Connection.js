@@ -52,7 +52,7 @@ Connection.init(
 
     },
     {
-        sequelize,
+        sequelize: sequelize,
         timestamps: false,
         underscored: true,
         modelName: 'Connection',

@@ -14,12 +14,9 @@ import "../styles/Register.css";
 
 export default function Register() {
     return <div>
-        <Container className="formCont container">
+        <Container className="formCont container" style={{ maxWidth: 450 }}>
             <h1 className="regTitle">Register for PocketRM</h1>
-            <Box component="form"
-                className="form login"
-                style={{ maxWidth: 450 }}
-            >
+            <Box component="form" className="form login" style={{ maxWidth: 450 }}>
                 <FormControl style={{ marginTop: "1em" }}>
                     <TextField color="secondary" label="First Name" focused />
                 </FormControl>

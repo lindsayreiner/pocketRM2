@@ -16,6 +16,9 @@
 
 .loginCont {
   margin-top: 3rem;
+  background-color: rgb(190, 189, 189, .5);
+  padding: 2rem;
+  border: 3px outset rgb(165,164,164);
 }
 
 .loginTitle {

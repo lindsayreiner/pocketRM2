@@ -31,7 +31,7 @@ export default function Login() {
 
     return <>
         <Box className="loginCont container" style={{ maxWidth: 450 }}>
-            <Container onSubmit={handleSubmit(onSubmit)} data-aos="fade-in">
+            <Container onSubmit={handleSubmit(onSubmit)} >
                 <h1 className="loginTitle">Login to your account</h1>
                 <Box component="form"
                     className="form login"
