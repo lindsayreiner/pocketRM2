@@ -23,80 +23,39 @@ Connection.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastName: {
-            type: DataTypes.STRING
-        },
+        lastName: DataTypes.STRING,
+
         metAt: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        hometown: {
-            type: DataTypes.STRING
-        },
-        relationship: {
-            type: DataTypes.STRING
-        },
-        email: {
-            type: DataTypes.STRING
-        },
-        phone: {
-            type: DataTypes.STRING
-        },
-        address: {
-            type: DataTypes.STRING
-        },
-        birthday: {
-            type: DataTypes.DATE
-        },
-        occupation: {
-            type: DataTypes.STRING
-        },
-        company: {
-            type: DataTypes.STRING
-        },
-        partner: {
-            type: DataTypes.BOOLEAN
-        },
-        partnerName: {
-            type: DataTypes.STRING
-        },
-        anniversary: {
-            type: DataTypes.DATE
-        },
-        children: {
-            type: DataTypes.BOOLEAN
-        },
-        childName: {
-            type: DataTypes.STRING
-        },
-        childBirthday: {
-            type: DataTypes.DATE
-        },
-        pets: {
-            type: DataTypes.BOOLEAN
-        },
-        petName: {
-            type: DataTypes.STRING
-        },
-        interestsHobbies: {
-            type: DataTypes.STRING
-        },
-        importantDatesTitle: {
-            type: DataTypes.STRING
-        },
-        importantDatesDate: {
-            type: DataTypes.DATE
-        },
-        giftIdeas: {
-            type: DataTypes.STRING
-        }
+        hometown: DataTypes.STRING,
+        relationship: DataTypes.STRING,
+        email: DataTypes.STRING,
+        phone: DataTypes.STRING,
+        address: DataTypes.STRING,
+        birthday: DataTypes.DATE,
+        occupation: DataTypes.STRING,
+        company: DataTypes.STRING,
+        partner: DataTypes.BOOLEAN,
+        partnerName: DataTypes.STRING,
+        anniversary: DataTypes.DATE,
+        children: DataTypes.BOOLEAN,
+        childName: DataTypes.STRING,
+        childBirthday: DataTypes.DATE,
+        pets: DataTypes.BOOLEAN,
+        petName: DataTypes.STRING,
+        interestsHobbies: DataTypes.STRING,
+        importantDatesTitle: DataTypes.STRING,
+        importantDatesDate: DataTypes.DATE,
+        giftIdeas: DataTypes.STRING,
+
     },
     {
         sequelize,
         timestamps: false,
-        freezeTableName: true,
         underscored: true,
-        modelName: 'connection',
+        modelName: 'Connection',
     }
 );
 

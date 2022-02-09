@@ -17,18 +17,10 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        firstName: {
-            type: DataTypes.STRING
-        },
-        lastName: {
-            type: DataTypes.STRING
-        },
-        email: {
-            type: DataTypes.STRING
-        },
-        password: {
-            type: DataTypes.STRING
-        }
+        firstName: DataTypes.STRING,
+        lastName: DataTypes.STRING,
+        email: DataTypes.STRING,
+        password: DataTypes.STRING
     },
     {
         hooks: {
@@ -47,7 +39,7 @@ User.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'user'
+        modelName: 'User'
     }
 );
 
