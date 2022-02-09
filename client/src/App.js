@@ -5,6 +5,8 @@ import AOS from "aos";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 import "./styles/App.css";
 import "aos/dist/aos.css";
@@ -22,6 +24,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
           </Routes>
         </main>

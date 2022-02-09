@@ -1,0 +1,32 @@
+#login-link,
+#sign-up-link {
+  margin-left: 0.3rem;
+  color: var(--navbarBg);
+  
+}
+
+#login-link:hover,
+#sign-up-link:hover {
+  color: var(--btnColor);
+}
+
+.redirect {
+  color: var(--navbarBg);
+}
+
+.loginCont {
+  margin-top: 3rem;
+}
+
+.loginTitle {
+  color: var(--btnColor);
+  margin-bottom: .5em;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+
+

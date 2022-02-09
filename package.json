@@ -1,0 +1,25 @@
+{
+  "name": "pocketrm2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lindsayreiner/pocketRM2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lindsayreiner/pocketRM2/issues"
+  },
+  "homepage": "https://github.com/lindsayreiner/pocketRM2#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
