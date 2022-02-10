@@ -4,6 +4,7 @@ const seedConnections = require('./connection-seeds');
 const sequelize = require('../config/connection.js');
 
 const seedAll = async () => {
+    console.log('IM SEEDING--------------')
     await sequelize.sync({ force: true });
     console.log('\n----- DATABASE SYNCED -----\n');
     await seedUsers();

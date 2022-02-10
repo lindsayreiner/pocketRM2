@@ -1,4 +1,4 @@
-const { Connection } = require('../models');
+const { Connection } = require('../models/Connection.js');
 
 const connectionData = [
     {

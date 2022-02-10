@@ -55,7 +55,7 @@ Connection.init(
         sequelize: sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'Connection',
+        modelName: 'connection',
     }
 );
 
