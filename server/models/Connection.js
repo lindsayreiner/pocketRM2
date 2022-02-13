@@ -1,62 +1,110 @@
-const { Model, DataTypes } = require('sequelize');
+const { Schema, model } = require("mongoose");
 
-const sequelize = require('../config/connection.js');
 
-class Connection extends Model { }
-
-Connection.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        lastName: DataTypes.STRING,
-
-        metAt: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        hometown: DataTypes.STRING,
-        relationship: DataTypes.STRING,
-        email: DataTypes.STRING,
-        phone: DataTypes.STRING,
-        address: DataTypes.STRING,
-        birthday: DataTypes.DATE,
-        occupation: DataTypes.STRING,
-        company: DataTypes.STRING,
-        partner: DataTypes.BOOLEAN,
-        partnerName: DataTypes.STRING,
-        anniversary: DataTypes.DATE,
-        children: DataTypes.BOOLEAN,
-        childName: DataTypes.STRING,
-        childBirthday: DataTypes.DATE,
-        pets: DataTypes.BOOLEAN,
-        petName: DataTypes.STRING,
-        interestsHobbies: DataTypes.STRING,
-        importantDatesTitle: DataTypes.STRING,
-        importantDatesDate: DataTypes.DATE,
-        giftIdeas: DataTypes.STRING,
-
+const connectionSchema = new Schema({
+    firstName: {
+        type: String,
+        required: false,
+        trim: true,
     },
-    {
-        sequelize: sequelize,
-        timestamps: false,
-        underscored: true,
-        modelName: 'connection',
+    lastName: {
+        type: String,
+        required: false,
+        trim: true,
+    },
+    metAt: {
+        type: String,
+        required: false,
+    },
+    hometown: {
+        type: String,
+        required: false
+    },
+    relationship: {
+        type: String,
+        required: false,
+    },
+    email: {
+        type: String,
+        required: false,
+    },
+    phone: {
+        type: String,
+        required: false,
+    },
+    address: {
+        type: String,
+        required: false,
+    },
+    birthday: {
+        type: String,
+        required: false,
+    },
+    occupation: {
+        type: String,
+        required: false,
+    },
+    company: {
+        type: String,
+        required: false,
+    },
+    partner: {
+        type: Boolean,
+        required: false,
+    },
+
+    partnerName: {
+        type: String,
+        required: false,
+    },
+    anniversary: {
+        type: String,
+        required: false,
+    },
+    children: {
+        type: Boolean,
+        required: false,
+    },
+
+    childName: {
+        type: String,
+        required: false,
+    },
+
+    childBirthday: {
+        type: String,
+        required: false,
+    },
+
+    pets: {
+        type: Boolean,
+        required: false,
+    },
+
+    petName: {
+        type: String,
+        required: false,
+    },
+
+    interestsHobbies: {
+        type: String,
+        required: false,
+    },
+    importantDatesTitle: {
+        type: String,
+        required: false,
+    },
+    importantDatesDate: {
+        type: String,
+        required: false,
+    },
+    giftIdeas: {
+        type: String,
+        required: false,
     }
-);
+});
+
+const Connection = model("Connection", connectionSchema);
 
 module.exports = Connection;
+

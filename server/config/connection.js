@@ -1,27 +1,16 @@
-const Sequelize = require('sequelize');
+const mongoose = require("mongoose");
 
-require('dotenv').config();
-
-const sequelize = process.env.JAWSDB_URL
-    ? new Sequelize(process.env.JAWSDB_URL)
-    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
-        host: 'localhost',
-        dialect: 'mysql',
-        dialectOptions: {
-            decimalNumbers: true,
+mongoose
+    .connect(
+        process.env.MONGODB_URI ||
+        "mongodb://localhost/pocketRM2",
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            // useCreateIndex: true,
+            // useFindAndModify: false,
         }
-    });
+    )
+    .catch((err) => console.log(err));
 
-async function authenticateSequelize() {
-    try {
-        await sequelize.authenticate();
-        console.log('Sequelize connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-}
-
-authenticateSequelize();
-
-
-module.exports = sequelize;
+module.exports = mongoose.connection;

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
 import {
@@ -13,23 +13,26 @@ import {
 import "../styles/Register.css";
 
 export default function Register() {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+
     return <div>
         <Container className="formCont container" style={{ maxWidth: 450 }}>
             <h1 className="regTitle">Register for PocketRM</h1>
-            <Box component="form" className="form login" style={{ maxWidth: 450 }}>
+            <Box component="form" className="form login" onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: 450 }}>
                 <FormControl style={{ marginTop: "1em" }}>
-                    <TextField color="secondary" label="First Name" focused />
+                    <TextField color="secondary" label="First Name" type="text" focused required />
                 </FormControl>
 
                 <FormControl>
-                    <TextField color="secondary" label="Last Name" focused />
+                    <TextField color="secondary" label="Last Name" type="text" focused required />
                 </FormControl>
                 <FormControl>
-                    <TextField color="secondary" label="Email Address" focused />
+                    <TextField color="secondary" label="Email Address" type="email" focused required />
                 </FormControl>
 
                 <FormControl>
-                    <TextField color="secondary" label="Password" type="password" focused />
+                    <TextField color="secondary" label="Password" type="password" focused required />
                 </FormControl>
 
 

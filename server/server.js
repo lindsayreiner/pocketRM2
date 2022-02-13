@@ -1,33 +1,39 @@
 const express = require('express');
-const session = require('express-session');
+const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
 
-const app = express();
+const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
+const db = require('./config/connection');
+
 const PORT = process.env.PORT || 3001;
+const app = express();
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
+});
 
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+server.start().then(res => {
+    server.applyMiddleware({ app });
 
-const sess = {
-    secret: 'Super secret secret',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-};
+})
 
-app.use(session(sess));
-
-const routes = require('./routes');
-
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(routes);
+// Serve up static assets
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
-sequelize.sync({ force: true }).then(() => {
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+db.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}!`);
+        console.log(`API server running on port ${PORT}!`);
+        console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
 });
