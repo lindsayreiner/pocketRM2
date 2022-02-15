@@ -14,7 +14,9 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
         connection: async (parent, { connectionId }) => {
-            const connectionData = await Connection.findOne({ _id: connectionId })
+            const connectionData = await Connection.findOne({ _id: connectionId });
+
+            return connectionData;
         }
     },
     Mutation: {
