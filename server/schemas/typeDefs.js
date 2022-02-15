@@ -20,7 +20,7 @@ type Connection {
     hometown: String
     relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
     birthday: String
     occupation: String
