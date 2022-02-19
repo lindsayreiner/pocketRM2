@@ -14,7 +14,6 @@ class ErrorBoundary extends React.Component {
             error: error,
             errorInfo: errorInfo
         })
-        // You can also log error messages to an error reporting service here
     }
 
     render() {
@@ -30,9 +29,11 @@ class ErrorBoundary extends React.Component {
                     </details>
                 </div>
             );
+        } else {
+            // Normally, just render children
+            return this.props.children;
         }
-        // Normally, just render children
-        return this.props.children;
+
     }
 }
 

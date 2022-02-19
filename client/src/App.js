@@ -61,11 +61,25 @@ function App() {
           <Navbar />
           <main>
             <Routes>
-              {/* <ErrorBoundary></ErrorBoundary> */}
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/" exact element={<ErrorBoundary>
+                <LandingPage />
+              </ErrorBoundary>}
+
+              />
+              <Route path="/login" element={<ErrorBoundary>
+                <Login />
+              </ErrorBoundary>}
+
+              />
+              <Route path="/register" element={<ErrorBoundary>
+                <Register />
+              </ErrorBoundary>}
+
+              />
+              <Route path="/dashboard" element={<ErrorBoundary>
+                <Dashboard />
+              </ErrorBoundary>}
+              />
 
             </Routes>
           </main>
