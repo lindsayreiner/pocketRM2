@@ -7,10 +7,15 @@ import Button from '@mui/material/Button';
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas, } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
+
 import beachWoman from "../images/women-on-beach.jpg";
 
 import "../styles/LandingPage.css";
 
+library.add(fas, faArrowRightLong)
 
 export default function LandingPage() {
     return <>
@@ -27,8 +32,8 @@ export default function LandingPage() {
                     Keep track of what matters.
                 </h2>
                 <a href="/register">
-                    <Button className="getStartedBtn btn-primary" size="large" sx={{ color: "white" }}>
-                        Get Started <FontAwesomeIcon icon="arrow-right" />
+                    <Button className="getStartedBtn btn-primary" size="large" sx={{ color: "white" }}><span style={{ marginRight: ".5rem" }}>
+                        Get Started</span><FontAwesomeIcon icon="fa-solid fa-right-long fa-beat" />
                     </Button>
                 </a>
             </Container>
