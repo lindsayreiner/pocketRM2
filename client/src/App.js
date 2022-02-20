@@ -80,7 +80,6 @@ function App() {
                 <Dashboard />
               </ErrorBoundary>}
               />
-
             </Routes>
           </main>
         </Router>

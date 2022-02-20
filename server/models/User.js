@@ -8,21 +8,20 @@ const userSchema = new Schema(
     {
         firstName: {
             type: String,
-            required: true,
+            required: false,
         },
         lastName: {
             type: String,
-            required: true,
+            required: false,
         },
         email: {
             type: String,
-            required: true,
-            unique: true,
+            required: false,
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
         password: {
             type: String,
-            required: true,
+            required: false,
         },
         // set savedConnections to be an array of data that adheres to the connectionSchema
         savedConnections: [connectionSchema]
@@ -51,8 +50,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-    return this.savedBooks.length;
+userSchema.virtual('connectionCount').get(function () {
+    return this.savedConnections.length;
 });
 
 const User = model('User', userSchema);
