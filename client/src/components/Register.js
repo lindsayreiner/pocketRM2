@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -9,8 +8,7 @@ import {
     Box,
     Container,
     Button,
-    TextField,
-    Alert
+    TextField
 } from '@mui/material';
 
 import Auth from '../utils/auth';
@@ -18,8 +16,6 @@ import "../styles/Register.css";
 
 export default function Register() {
     const navigate = useNavigate();
-
-    const { register, handleSubmit } = useForm();
 
     // set initial form state
     const [userFormData, setUserFormData] = useState({
@@ -29,7 +25,6 @@ export default function Register() {
         password: '',
     });
 
-    // const [validated, setValidated] = useState(false);
     const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleInputChange = (event) => {
@@ -49,8 +44,6 @@ export default function Register() {
             event.preventDefault();
             event.stopPropagation();
         }
-
-        // setValidated(true);
 
         console.log(userFormData);
 
@@ -86,9 +79,6 @@ export default function Register() {
                 className="form login"
                 onSubmit={handleFormSubmit}
                 style={{ maxWidth: 450 }}
-                noValidate
-            // validated={validated}
-
             >
                 <FormControl style={{ marginTop: "1em" }}>
                     <TextField
@@ -100,7 +90,6 @@ export default function Register() {
                         onChange={handleInputChange}
                         focused required />
                 </FormControl>
-
                 <FormControl>
                     <TextField
                         color="secondary"
@@ -134,14 +123,14 @@ export default function Register() {
 
 
                 <Button
-                    // disabled={
-                    //     !(
-                    //         userFormData.firstName &&
-                    //         userFormData.lastName &&
-                    //         userFormData.email &&
-                    //         userFormData.password
-                    //     )
-                    // }
+                    disabled={
+                        !(
+                            userFormData.firstName &&
+                            userFormData.lastName &&
+                            userFormData.email &&
+                            userFormData.password
+                        )
+                    }
                     className="btn-primary" type="submit"
                     sx={{ color: "white" }}>
                     Submit</Button>
