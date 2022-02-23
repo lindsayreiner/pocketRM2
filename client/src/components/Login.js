@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-// import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
 import {
     FormControl,
@@ -10,38 +12,27 @@ import {
     TextField
 } from '@mui/material';
 
-import "../styles/Login.css";
 import Auth from "../utils/auth"
+import "../styles/Login.css";
+
 
 export default function Login() {
-
-    const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    const [validated] = useState(false);
     const navigate = useNavigate();
 
+    const [userFormData, setUserFormData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const [loginUser, { error }] = useMutation(LOGIN_USER);
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
+        const name = event.target.name;
+        const value = event.target.value;
+
         setUserFormData({ ...userFormData, [name]: value });
     };
 
-    const login = async (req, res) => {
-        const email = document.querySelector('#email').value.trim();
-        const password = document.querySelector('#password').value.trim();
-        console.log('Im inside the login variable------------------------------');
-
-        if (email && password) {
-            const response = await fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' }
-            })
-            if (response.ok) {
-                console.log('Logged in successfully!');
-            } else {
-                console.log("There was an error logging in Please try again.")
-            }
-        }
-    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -52,41 +43,45 @@ export default function Login() {
             event.stopPropagation();
         }
 
+        console.log(userFormData);
+
         try {
-            const { data } = await login({
+            const { data } = await loginUser({
                 variables: { ...userFormData },
             });
 
             console.log(data);
-            Auth.login(data.login.token);
+
+
+            Auth.login(data.loginUser.token);
             navigate("/dashboard")
+
         } catch (e) {
             console.error(e);
         }
 
-        // clear form values
         setUserFormData({
-            email: '',
-            password: '',
+            email: "",
+            password: "",
         });
     };
-
-
     return <>
         <Box className="loginCont container" style={{ maxWidth: 450 }}>
             <Container >
                 <h1 className="loginTitle">Login to your account</h1>
-                <Box component="form"
+                <Box
+                    component="form"
                     className="form login"
                     style={{ maxWidth: 450 }}
-                    validated={validated}
                     onSubmit={handleFormSubmit}
                 >
                     <FormControl style={{ marginBottom: "1em", marginTop: "1em" }}>
                         <TextField
                             color="secondary"
                             label="Email Address"
+                            name="email"
                             type="email"
+                            defaultValue={userFormData.email}
                             onChange={handleInputChange}
                             focused
                             required />
@@ -96,14 +91,24 @@ export default function Login() {
                         <TextField
                             color="secondary"
                             label="Password"
+                            name="password"
                             type="password"
+                            defaultValue={userFormData.password}
                             onChange={handleInputChange}
                             focused
                             required />
                     </FormControl>
 
 
-                    <Button className="btn-primary" type="submit" sx={{ color: "white", marginBottom: "1em" }}>Login</Button>
+                    <Button
+                        disabled={
+                            !(
+                                userFormData.email &&
+                                userFormData.password
+                            )
+                        }
+                        className="btn-primary" type="submit"
+                        sx={{ color: "white", marginBottom: "1em" }}>Login</Button>
                 </Box>
 
                 <div className="redirect">

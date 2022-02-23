@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -36,7 +36,6 @@ export default function Register() {
     };
 
     const handleFormSubmit = async (event) => {
-
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -48,7 +47,6 @@ export default function Register() {
         console.log(userFormData);
 
         try {
-            // execute addUser mutation and pass in variable data from form
             const { data } = await addUser({
                 variables: { ...userFormData },
             });

@@ -76,7 +76,7 @@ type Query {
   }
 
   type Mutation {
-    login(email: String!, password: String!): Auth
+    loginUser(email: String!, password: String!): Auth
     addUser(firstName: String!, lastName: String! email: String!, password: String!): Auth
     saveConnection(connectionData: ConnectionInput!): User
     removeConnection(connectionId: ID!): User
