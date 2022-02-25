@@ -31,5 +31,11 @@
   flex-direction: column;
 }
 
+#logout-button {
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
 
 

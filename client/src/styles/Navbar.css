@@ -24,7 +24,8 @@
   font-family: "Poppins", sans-serif !important;
 }
 
-#login-button {
+#login-button,
+#logout-button {
   width: 85.72px;
   margin-right: 0.5em;
   border: 3px outset var(--btnColor);

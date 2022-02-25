@@ -43,18 +43,14 @@ export default function Login() {
             event.stopPropagation();
         }
 
-        console.log(userFormData);
-
         try {
             const { data } = await loginUser({
                 variables: { ...userFormData },
             });
 
-            console.log(data);
-
-
             Auth.login(data.loginUser.token);
-            navigate("/dashboard")
+            let urlEncoded = new URLSearchParams(data)
+            navigate("/dashboard", { state: urlEncoded })
 
         } catch (e) {
             console.error(e);

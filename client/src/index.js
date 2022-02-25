@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+// import { fab } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fas);
+// Kicks off the process of finding <i> tags and replacing with <svg>
+dom.watch();
+
 
 ReactDOM.render(
   <React.StrictMode>
