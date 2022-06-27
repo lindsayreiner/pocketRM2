@@ -12,6 +12,9 @@ import Auth from "../utils/auth";
 export default function Dashboard() {
     return (
         <div>
+            <section>
+                <Connections />
+            </section>
             <h1>Dashboard</h1>
 
         </div>

@@ -16,25 +16,12 @@ type Connection {
     firstName: String!
     lastName: String!
     metAt: String!
-    hometown: String
     relationship: String
     email: String
     phone: String
     address: String
     birthday: String
     occupation: String
-    company: String
-    partner: Boolean
-    partnerName: String
-    anniversary: String
-    children: Boolean
-    childName: String
-    childBirthday: String
-    pets: Boolean
-    petName: String
-    interestsHobbies: String
-    importantDatesTitle: String
-    importantDatesDate: String
     giftIdeas: String
 }
 
@@ -48,25 +35,12 @@ input ConnectionInput {
     firstName: String!
     lastName: String!
     metAt: String!
-    hometown: String
     relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
     birthday: String
     occupation: String
-    company: String
-    partner: Boolean
-    partnerName: String
-    anniversary: String
-    children: Boolean
-    childName: String
-    childBirthday: String
-    pets: Boolean
-    petName: String
-    interestsHobbies: String
-    importantDatesTitle: String
-    importantDatesDate: String
     giftIdeas: String
 }
 

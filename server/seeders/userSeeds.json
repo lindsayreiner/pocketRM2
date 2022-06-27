@@ -106,28 +106,15 @@
                 "giftIdeas": ""
             },
             {
-                "firstName": "Matthew",
-                "lastName": "Thomas",
+                "firstName": "Chris",
+                "lastName": "Evans",
                 "metAt": "School",
-                "hometown": "",
-                "relationship": "Friend",
+                "relationship": "Study Buddy",                
                 "email": "",
                 "phone": "555-555-5673",
                 "address": "",
                 "birthday": "",
-                "occupation": "Software Engineer",
-                "company": "",
-                "partner": "true",
-                "partnerName": "Ray",
-                "anniversary": "",
-                "children": "false",
-                "childName": "",
-                "childBirthday": "",
-                "pets": "false",
-                "petName": "",
-                "interestsHobbies": "Running",
-                "importantDatesTitle": "",
-                "importantDatesDate": "",
+                "occupation": "",
                 "giftIdeas": ""
             }
         ]
